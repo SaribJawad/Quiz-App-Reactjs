@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { useAppContext } from "../context/Context";
 
-function Timer({ dispatch, secondsRemaining }) {
+function Timer() {
+  const { dispatch, secondsRemaining } = useAppContext();
   const minutes = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
 

@@ -1,4 +1,8 @@
-function FinishedScreen({ points, totalPoints, highscore, status, dispatch }) {
+import { useAppContext } from "../context/Context";
+
+function FinishedScreen() {
+  const { points, totalPoints, dispatch, status, highscore } = useAppContext();
+
   const percentage = (points / totalPoints) * 100;
 
   let emoji;

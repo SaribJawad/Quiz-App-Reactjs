@@ -1,15 +1,19 @@
-function Questions({ questions, dispatch, answer }) {
+import { useAppContext } from "../context/Context";
+
+function Questions() {
+  const { questions, dispatch, answer, index: questionIndex } = useAppContext();
+
   const hasAnswer = answer !== null;
 
   return (
     <div>
-      <h4>{questions.question}</h4>
+      <h4>{questions[questionIndex].question}</h4>
       <div className="options">
-        {questions.options.map((option, index) => (
+        {questions[questionIndex].options.map((option, index) => (
           <button
             className={`btn btn-option ${index === answer ? "answer" : ""} ${
               hasAnswer
-                ? index === questions.correctOption
+                ? index === questions[questionIndex].correctOption
                   ? "correct"
                   : "wrong"
                 : ""

@@ -1,7 +1,11 @@
-function NewButton({ dispatch, answer, index, noOfQuestion }) {
+import { useAppContext } from "../context/Context";
+
+function NewButton() {
+  const { dispatch, answer, index, noOfQuestions } = useAppContext();
+
   if (answer === null) return null;
 
-  if (index < noOfQuestion - 1)
+  if (index < noOfQuestions - 1)
     return (
       <button
         className="btn btn-ui"
@@ -11,7 +15,7 @@ function NewButton({ dispatch, answer, index, noOfQuestion }) {
       </button>
     );
 
-  if (index === noOfQuestion - 1)
+  if (index === noOfQuestions - 1)
     return (
       <button
         className="btn btn-ui"

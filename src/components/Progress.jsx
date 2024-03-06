@@ -1,4 +1,8 @@
-function Progress({ points, index, noOfQuestions, totalPoints, answer }) {
+import { useAppContext } from "../context/Context";
+
+function Progress() {
+  const { index, noOfQuestions, points, answer, totalPoints } = useAppContext();
+
   return (
     <header className="progress">
       <progress max={noOfQuestions} value={index + Number(answer !== null)} />
